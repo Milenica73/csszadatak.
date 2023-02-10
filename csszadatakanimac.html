@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>csszadatak</title>
+    <style>
+        
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        #box{
+            width: 540px;
+            height: 370px;
+            border: 1px solid #000;
+            background-color: #050210;
+            padding: 10px 10px 10px 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .box{
+            border-radius: 100%;
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+        }
+        .box::before{
+            content: '';
+            border-radius: 100%;
+            height: 300px;
+            width: 300px;
+            display: block;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            filter: blur(30px);
+            transition-duration: 2s;
+            transform: rotate(360deg);
+            animation-name: spin;
+            animation-duration: 5000ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        @keyframes spin {
+            from {
+                transform:rotate(0deg);
+            }
+            to {
+                transform:rotate(360deg);
+            }
+        }
+        .inner-box {
+            width: 85%;
+            height: 85%;
+            border-radius: 100%;
+            position: absolute;
+            top: 50%;
+            background-color: black;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .box2{
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 0px;
+            height: 0px;
+            background-color: #3142bfad;
+            top: 50%;
+            left: 50%;
+            border-radius: 100%;
+            animation-name: pulses;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .box2::after{
+            content: '';
+            animation-delay: 2s;
+            animation-name: pulses;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes pulses{
+            0% { width:0;height: 0; opacity: 0.0}
+            10% { width:10%;height: 10%; opacity: .20}
+            20% { width:20%;height: 20%; opacity: .40 }
+            30% { width:30%;height: 30%; opacity: .50 }
+            40% { width:40%;height: 40%; opacity: .65 }
+            50% { width:50%;height: 50%; opacity: .70}
+            60% { width:60%;height: 60%; opacity: .65}
+            70% { width:70%;height: 70%;  opacity: .50}
+            80% { width:80%;height: 80%;  opacity: .40}
+            90% { width:90%;height: 90%;  opacity: .20}
+            100% { width:100%;height: 100%;  opacity: 0.0}
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="box">
+    <div class="box">
+        <div class="inner-box">
+            <div class="box2"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
